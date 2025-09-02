@@ -228,10 +228,10 @@ function hexToRgb(hex) {
 }
 
 function resetApp() {
-    if (color1.value !== '#f784c5' || color2.value !== '#1b602f') {
+    if (color1.value !== '#f784c5' || color2.value !== '#1b602f' || powerSlider.value !== '1.0') {
         Swal.fire({
-            title: 'Yakin mau reset warna?',
-            text: "Nilai warna akan kembali ke semula!",
+            title: 'Yakin reset warna & duotone?',
+            text: "Nilai warna & duotone akan kembali ke semula!",
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#F784C5',
@@ -242,10 +242,11 @@ function resetApp() {
         }).then((result) => {
             color1.value = '#f784c5';
             color2.value = '#1b602f';
+            powerSlider.value = '1.0';
             applyDuotone();
             Swal.fire({
                 title: 'Berhasil!',
-                text: 'Warna sudah di-reset.',
+                text: 'Warna & duotone sudah di-reset.',
                 icon: 'success',
                 toast: true,
                 position: toastPosition,
