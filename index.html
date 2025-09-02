@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BPHGG - Brave Pink Hero Green Generator</title>
+    <link rel="shortcut icon" href="assets/icon/bulb.png" type="image/x-icon">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="hi.kvn">
+    <meta name="description" content="Web generator fotomu dengan efek duotone Brave Pink dan Hero Green—terinspirasi dari simbol protes '17+8 Tuntutan Rakyat', serta estetik visual yang menyertai tagar 1312 dan ACAB yang viral di demo Indonesia saat ini">
+    <meta name="keywords" content="Pink Green, Brave Pink, Hero Green, 17+8, 1312, ACAB, efek duotone, demo Indonesia, Affan Kurniawan, solidaritas visual, template foto viral, generator profil demo">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hikvn.my.id/pink-green">
+
+    <!-- Privacy/Security Meta -->
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Open Graph for Social Media such as Facebook, WhatsApp, or LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Brave Pink Hero Green Generator">
+    <meta property="og:description" content="Generator foto profil dengan efek duotone Brave Pink & Hero Green. Terinspirasi simbol demo 17+8 Tuntutan Rakyat, serta estetik visual yang viral bersama tagar 1312 dan ACAB di Indonesia.">
+    <meta property="og:image" content="https://hikvn.my.id/pink-green/img/images.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="682">
+    <meta property="og:url" content="https://hikvn.my.id/pink-green/">
+    <meta property="og:site_name" content="Brave Pink Hero Green Generator">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Brave Pink Hero Green Generator">
+    <meta name="twitter:description" content="Buat foto profil dengan filter Brave Pink & Hero Green, simbol solidaritas demo 17+8 Tuntutan Rakyat. Dukungan visual terhadap perjuangan rakyat, #1312 #ACAB.">
+    <meta name="twitter:image" content="https://hikvn.my.id/pink-green/img/images.png">
+    <meta name="twitter:image:alt" content="Contoh hasil generator foto Brave Pink Hero Green, simbol demo 17+8 Tuntutan Rakyat.">
+
+    <!-- Web App Appearance (Android/iOS) -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Brave Pink Hero Green Generator">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1B602F">
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLB1XT278E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XLB1XT278E');
+    </script>
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+
+    <!-- Particle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body class="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center p-4 sm:p-8 font-sans">
+    <div class="w-full max-w-4xl mx-auto my-auto flex-grow flex flex-col items-center gap-6 sm:gap-8 lg:gap-12">
+        <div class="title-container">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white text-center" data-aos="fade-down">Brave Pink Hero Green Generator</h1>
+        </div>
+        <div class="w-full flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-center lg:items-start">
+            <div class="flex-1 w-full flex flex-col items-center" data-aos="zoom-in">
+                <div class="bg-gray-700 p-2 rounded-2xl shadow-2xl w-full max-w-lg lg:max-w-none">
+                    <canvas id="canvas" class="rounded-xl w-full h-auto"></canvas>
+                </div>
+                <div class="hidden lg:block">
+                  <p class="text-gray-400 text-sm sm:text-base mt-4 text-center" data-aos="fade-up" data-aos-delay="200">
+                      Dibuat dengan <span class="text-red-500 animate-pulse">❤️</span> oleh hi.kvn!
+                  </p>
+                </div>
+            </div>
+            <div class="flex-1 w-full bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-2xl flex flex-col gap-6" data-aos="fade-left">
+                <label for="upload" class="file-input-container">
+                    <input type="file" id="upload" accept="image/*" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span class="text-gray-400">Pilih gambar atau seret di sini</span>
+                </label>
+                <div class="flex flex-col">
+                    <label for="color1" class="font-semibold text-gray-400 mb-2 text-sm">Warna 1 (Pink)</label>
+                    <input type="color" id="color1" value="#f784c5" class="h-12 w-full rounded-lg border-2 border-gray-700 cursor-pointer" />
+                </div>
+                <div class="flex flex-col">
+                    <label for="color2" class="font-semibold text-gray-400 mb-2 text-sm">Warna 2 (Hijau)</label>
+                    <input type="color" id="color2" value="#1b602f" class="h-12 w-full rounded-lg border-2 border-gray-700 cursor-pointer" />
+                </div>
+                <div class="flex flex-col">
+                    <label for="power" class="font-semibold text-gray-400 mb-2 text-sm">Intensitas Duotone</label>
+                    <input type="range" id="power" min="0.5" max="2" value="1" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" />
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="btn bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition transform hover:scale-105 w-full" id="resetBtn">
+                        Reset
+                    </button>
+                    <button class="btn bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition transform hover:scale-105 w-full" id="download">
+                        Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+      <p class="text-gray-400 text-sm sm:text-base mt-5 text-center">
+        Seluruh data foto tereksekusi di browser tanpa dikirim ke server.
+      </p>
+      <p class="text-gray-400 text-sm sm:text-base text-center lg:hidden">
+        Dibuat dengan <span class="text-red-500 animate-pulse">❤️</span> oleh hi.kvn!
+      </p>
+    </header>
+    <div id="particles-js"></div>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/particles.js"></script>
+</body>
+</html>

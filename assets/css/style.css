@@ -1,0 +1,58 @@
+/* Gaya tambahan untuk input file yang lebih modern */
+.file-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 120px;
+    border: 2px dashed #4b5563; /* Lebih gelap agar kontras di mode gelap */
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.file-input-container:hover {
+    border-color: #9ca3af; /* Warna hover yang lebih terang */
+    background-color: #1f2937; /* Latar belakang hover yang lebih gelap */
+}
+
+.file-input-container input[type="file"] {
+    display: none;
+}
+
+.file-input-container span {
+    font-size: 0.875rem; /* Ukuran font lebih kecil untuk mobile */
+    font-weight: 600;
+    color: #d1d5db;
+}
+
+.file-input-container svg {
+    color: #d1d5db;
+}
+
+/* Kelas untuk menyembunyikan elemen tanpa mengubah tata letak */
+.hidden-visually {
+    opacity: 0;
+    pointer-events: none; /* Mencegah interaksi mouse/sentuh */
+    position: absolute; /* Posisikan secara absolut untuk menjaga layout */
+}
+
+/* Gaya untuk input warna */
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 0.5rem;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* PENTING: Posisikan di belakang konten lainnya */
+}
