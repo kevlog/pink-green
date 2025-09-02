@@ -359,7 +359,7 @@ downloadBtn.addEventListener('click', () => {
         text: 'Gambar berhasil diunduh.',
         icon: 'success',
         toast: true,
-        position: 'bottom-end',
+        position: toastPosition,
         showConfirmButton: false,
         delay: 2000,
         timer: 5000,
