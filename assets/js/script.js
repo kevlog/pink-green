@@ -45,6 +45,8 @@ const powerSlider = document.getElementById('power');
 const downloadBtn = document.getElementById('download');
 const resetBtn = document.getElementById('resetBtn');
 const fileInputContainer = document.querySelector('.file-input-container');
+const isMobile = window.innerWidth <= 768;
+const toastPosition = isMobile ? 'top' : 'top-end';
 
 let img = new Image();
 let originalImageLoaded = false;
@@ -117,7 +119,7 @@ function handleFile(file) {
             text: 'Gambar berhasil diunggah.',
             icon: 'success',
             toast: true,
-            position: 'top-end',
+            position: toastPosition,
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -246,7 +248,7 @@ function resetApp() {
                 text: 'Warna sudah di-reset.',
                 icon: 'success',
                 toast: true,
-                position: 'top-end',
+                position: toastPosition,
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
@@ -307,7 +309,7 @@ function resetApp() {
                 text: 'Semua sudah di-reset.',
                 icon: 'success',
                 toast: true,
-                position: 'top-end',
+                position: toastPosition,
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
