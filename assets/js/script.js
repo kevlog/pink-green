@@ -266,7 +266,7 @@ function resetApp() {
             title: 'Oops...',
             text: 'Gambarnya aja kaga lu upload. Apanya yg mau lu reset? Tunjangan DPR?🤫',
             confirmButtonColor: '#F784C5',
-            confirmButtonText: "Pengennya sih gitu😂",
+            confirmButtonText: "Boleh tuh😂",
             background: '#1f2937',
             color: '#ffffff'
         });
@@ -330,10 +330,10 @@ downloadBtn.addEventListener('click', () => {
     if (!originalImageLoaded) {
         Swal.fire({
             icon: 'warning',
-            title: 'Oops...',
-            text: 'Gambarnya aja belum lu upload, apanya yang mau lu download? Slip gajilu yang kaga seberapa dibanding gaji yang katanya wakil rakyat itu?🤣',
+            title: 'Alerta 1312',
+            text: 'Gambarnya belum lu upload. Silahkan upload dulu sebelum diblokir pemerintah🗿',
             confirmButtonColor: '#F784C5',
-            confirmButtonText: 'Jangan keras-keras abangkuh😅',
+            confirmButtonText: 'Awkokwow🤡',
             background: '#1f2937',
             color: '#ffffff'
         });
