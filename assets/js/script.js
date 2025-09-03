@@ -91,17 +91,17 @@ function handleFile(file) {
     if (!file || !file.type.startsWith('image/')) {
         Swal.fire({
             icon: 'error',
-            title: 'Tipe File Salah',
-            text: 'Input gambar bro, jangan diawur ae kek DPR, suwe!',
+            title: 'Tipe File Salah!',
+            text: 'Input gambar bro, jangan diawur ae kek DPR 🤦‍♂️🤣 suwe!',
             background: '#1f2937',
             color: '#ffffff',
             confirmButtonColor: '#f784c5',
-            confirmButtonText: 'Okeoke bro🙏😂'
+            confirmButtonText: 'Okeoke bro 👌😂'
         });
         return;
     }
 
-    // Tampilkan SweetAlert loading sebelum memproses file
+    // Tampilkan SweetAlert loading sebelum Memproses file
     Swal.fire({
         title: 'Memproses Gambar',
         text: 'Mohon tunggu sebentar ya!',
@@ -117,7 +117,7 @@ function handleFile(file) {
         }
     }).then(() => {
         Swal.fire({
-            title: 'Berhasil!',
+            title: '🎉 Berhasil!',
             text: 'Gambar berhasil diunggah.',
             icon: 'success',
             toast: true,
@@ -245,8 +245,8 @@ function resetApp() {
             if (result.isConfirmed) {
                 Swal.fire({
                     icon: 'info',
-                    title: 'Processing..',
-                    text: 'Please wait a moment!',
+                    title: '⏳ Memproses...',
+                    text: 'Bentar yaa 😇☕',
                     toast: true,
                     position: toastPosition,
                     background: '#1f2937',
@@ -264,7 +264,7 @@ function resetApp() {
                     powerSlider.value = '1';
                     applyDuotone();
                     Swal.fire({
-                        title: 'Berhasil!',
+                        title: '🎉 Berhasil!',
                         text: 'Warna & duotone sudah di-reset.',
                         icon: 'success',
                         toast: true,
@@ -327,7 +327,7 @@ function resetApp() {
 
             // Opsional: Tampilkan SweetAlert sukses setelah reset
             Swal.fire({
-                title: 'Berhasil!',
+                title: '🎉 Berhasil!',
                 text: 'Semua sudah di-reset.',
                 icon: 'success',
                 toast: true,
@@ -361,8 +361,8 @@ color1.addEventListener('input', () => {
     if (originalImageLoaded) {
         Swal.fire({
             icon: 'info',
-            title: 'Processing..',
-            text: 'Please wait a moment!',
+            title: '⏳ Memproses...',
+            text: 'Bentar yaa 😇☕',
             toast: true,
             position: toastPosition,
             background: '#1f2937',
@@ -381,7 +381,7 @@ color1.addEventListener('input', () => {
             // Tutup toast setelah proses selesai
             Swal.close();
             // Tampilkan notifikasi sukses
-            showToast('success', 'Berhasil!', 'Warna 1 berhasil diperbarui.');
+            showToast('success', '🎉 Berhasil!', 'Warna 1 berhasil diperbarui.');
         }, 100); // Beri sedikit jeda agar SweetAlert muncul sempurna
     }
 });
@@ -391,8 +391,8 @@ color2.addEventListener('input', () => {
     if (originalImageLoaded) {
         Swal.fire({
             icon: 'info',
-            title: 'Processing..',
-            text: 'Please wait a moment!',
+            title: '⏳ Memproses...',
+            text: 'Bentar yaa 😇☕',
             toast: true,
             position: toastPosition,
             background: '#1f2937',
@@ -411,7 +411,7 @@ color2.addEventListener('input', () => {
             // Tutup toast setelah proses selesai
             Swal.close();
             // Tampilkan notifikasi sukses
-            showToast('success', 'Berhasil!', 'Warna 2 berhasil diperbarui.');
+            showToast('success', '🎉 Berhasil!', 'Warna 2 berhasil diperbarui.');
         }, 100); // Beri sedikit jeda agar SweetAlert muncul sempurna
     }
 });
@@ -421,8 +421,8 @@ powerSlider.addEventListener('input', () => {
     if (originalImageLoaded) {
         Swal.fire({
             icon: 'info',
-            title: 'Processing..',
-            text: 'Please wait a moment!',
+            title: '⏳ Memproses...',
+            text: 'Bentar yaa 😇☕',
             toast: true,
             position: toastPosition,
             background: '#1f2937',
@@ -441,7 +441,7 @@ powerSlider.addEventListener('input', () => {
             // Tutup toast setelah proses selesai
             Swal.close();
             // Tampilkan notifikasi sukses
-            showToast('success', 'Berhasil!', 'Efek duotone berhasil diperbarui.');
+            showToast('success', '🎉 Berhasil!', 'Efek duotone berhasil diperbarui.');
         }, 100); // Beri sedikit jeda agar SweetAlert muncul sempurna
     }
 });
@@ -476,7 +476,7 @@ downloadBtn.addEventListener('click', () => {
     let timerInterval;
     let duration = 3000;
     Swal.fire({
-        title: 'Processing...',
+        title: '📡 Mengunduh...',
         html: `Ulangi jika tidak terunduh dalam <b>${Math.ceil(duration / 1000)}</b> detik.`,
         timer: duration,
         timerProgressBar: true,
@@ -485,7 +485,8 @@ downloadBtn.addEventListener('click', () => {
         background: '#1f2937',
         color: '#ffffff',
         showConfirmButton: false,
-        didOpen: (toast) => {
+        didOpen: () => {
+            Swal.showLoading();
             const b = Swal.getHtmlContainer().querySelector('b');
             timerInterval = setInterval(() => {
                 const sisaWaktu = (Swal.getTimerLeft() / 1000).toFixed(1);
@@ -516,11 +517,11 @@ downloadBtn.addEventListener('click', () => {
 
             setTimeout(() => {
                 Swal.fire({
-                    title: 'Berhasil!',
+                    title: '🎉 Berhasil!',
                     text: 'Gambar berhasil diunduh.',
                     icon: 'success',
                     toast: true,
-                    position: toastPosition,
+                    position: isMobile ? 'top' : 'bottom-end',
                     showConfirmButton: false,
                     timer: 5000,
                     timerProgressBar: true,
