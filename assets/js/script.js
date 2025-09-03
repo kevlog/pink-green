@@ -93,7 +93,9 @@ function handleFile(file) {
             icon: 'error',
             title: 'Tipe File Salah',
             text: 'Input gambar bro, jangan diawur ae kek DPR, suwe!',
-            confirmButtonColor: '#F784C5',
+            background: '#1f2937',
+            color: '#ffffff',
+            confirmButtonColor: '#f784c5',
             confirmButtonText: 'Okeoke bro🙏😂'
         });
         return;
@@ -240,22 +242,41 @@ function resetApp() {
             background: '#1f2937',
             color: '#ffffff'
         }).then((result) => {
-            color1.value = '#f784c5';
-            color2.value = '#1b602f';
-            powerSlider.value = '1';
-            applyDuotone();
-            Swal.fire({
-                title: 'Berhasil!',
-                text: 'Warna & duotone sudah di-reset.',
-                icon: 'success',
-                toast: true,
-                position: toastPosition,
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                background: '#1f2937',
-                color: '#ffffff'
-            });
+            if (result.isConfirmed) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Processing..',
+                    text: 'Please wait a moment!',
+                    toast: true,
+                    position: toastPosition,
+                    background: '#1f2937',
+                    color: '#ffffff',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                setTimeout(() => {
+                    color1.value = '#f784c5';
+                    color2.value = '#1b602f';
+                    powerSlider.value = '1';
+                    applyDuotone();
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Warna & duotone sudah di-reset.',
+                        icon: 'success',
+                        toast: true,
+                        position: toastPosition,
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        background: '#1f2937',
+                        color: '#ffffff'
+                    });
+                }, 100);
+            }
         })
         return;
     }
@@ -263,7 +284,7 @@ function resetApp() {
     if (!originalImageLoaded) {
         Swal.fire({
             icon: 'warning',
-            title: 'Oops...',
+            title: 'Warn Code: 17+8',
             text: 'Gambarnya aja kaga lu upload. Apanya yg mau lu reset? Tunjangan DPR?🤫',
             confirmButtonColor: '#F784C5',
             confirmButtonText: "Boleh tuh😂",
@@ -321,17 +342,119 @@ function resetApp() {
     });
 }
 
-color1.addEventListener('input', applyDuotone);
-color2.addEventListener('input', applyDuotone);
-powerSlider.addEventListener('input', applyDuotone);
+function showToast(icon, title, text) {
+    Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        toast: true,
+        position: toastPosition,
+        showConfirmButton: false,
+        timer: 1500,
+        background: '#1f2937',
+        color: '#ffffff'
+    });
+}
+
+color1.addEventListener('input', () => {
+    // Tampilkan notifikasi sebelum memulai proses
+    if (originalImageLoaded) {
+        Swal.fire({
+            icon: 'info',
+            title: 'Processing..',
+            text: 'Please wait a moment!',
+            toast: true,
+            position: toastPosition,
+            background: '#1f2937',
+            color: '#ffffff',
+            showConfirmButton: false,
+            timer: 3000,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Panggil fungsi duotone di dalam setTimeout
+        // Ini memindahkan proses berat ke antrean asinkron
+        setTimeout(() => {
+            applyDuotone();
+            // Tutup toast setelah proses selesai
+            Swal.close();
+            // Tampilkan notifikasi sukses
+            showToast('success', 'Berhasil!', 'Warna 1 berhasil diperbarui.');
+        }, 100); // Beri sedikit jeda agar SweetAlert muncul sempurna
+    }
+});
+
+color2.addEventListener('input', () => {
+    // Tampilkan notifikasi sebelum memulai proses
+    if (originalImageLoaded) {
+        Swal.fire({
+            icon: 'info',
+            title: 'Processing..',
+            text: 'Please wait a moment!',
+            toast: true,
+            position: toastPosition,
+            background: '#1f2937',
+            color: '#ffffff',
+            showConfirmButton: false,
+            timer: 3000,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Panggil fungsi duotone di dalam setTimeout
+        // Ini memindahkan proses berat ke antrean asinkron
+        setTimeout(() => {
+            applyDuotone();
+            // Tutup toast setelah proses selesai
+            Swal.close();
+            // Tampilkan notifikasi sukses
+            showToast('success', 'Berhasil!', 'Warna 2 berhasil diperbarui.');
+        }, 100); // Beri sedikit jeda agar SweetAlert muncul sempurna
+    }
+});
+
+powerSlider.addEventListener('input', () => {
+    // Tampilkan notifikasi sebelum memulai proses
+    if (originalImageLoaded) {
+        Swal.fire({
+            icon: 'info',
+            title: 'Processing..',
+            text: 'Please wait a moment!',
+            toast: true,
+            position: toastPosition,
+            background: '#1f2937',
+            color: '#ffffff',
+            showConfirmButton: false,
+            timer: 3000,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Panggil fungsi duotone di dalam setTimeout
+        // Ini memindahkan proses berat ke antrean asinkron
+        setTimeout(() => {
+            applyDuotone();
+            // Tutup toast setelah proses selesai
+            Swal.close();
+            // Tampilkan notifikasi sukses
+            showToast('success', 'Berhasil!', 'Efek duotone berhasil diperbarui.');
+        }, 100); // Beri sedikit jeda agar SweetAlert muncul sempurna
+    }
+});
+
 resetBtn.addEventListener('click', resetApp);
+
 downloadBtn.addEventListener('click', () => {
     // Validasi yang diperbaiki: periksa `originalImageLoaded`
     if (!originalImageLoaded) {
         Swal.fire({
             icon: 'warning',
-            title: 'Alerta 1312',
-            text: 'Gambarnya belum lu upload. Silahkan upload dulu sebelum diblokir pemerintah🗿',
+            title: 'Warn Code: 1312',
+            text: 'Gabisa download, kan belum ada gambarnya. Download e-book aja sana biar pinter ga kayak si "3"🗿',
             confirmButtonColor: '#F784C5',
             confirmButtonText: 'Awkokwow🤡',
             background: '#1f2937',
@@ -350,22 +473,61 @@ downloadBtn.addEventListener('click', () => {
         return;
     }
 
-    const link = document.createElement('a');
-    link.download = `${fileName}-bphg-success.png`;
-    link.href = canvas.toDataURL();
-    link.click();
-
+    let timerInterval;
+    let duration = 3000;
     Swal.fire({
-        title: 'Berhasil!',
-        text: 'Gambar berhasil diunduh.',
-        icon: 'success',
+        title: 'Processing...',
+        html: `Ulangi jika tidak terunduh dalam <b>${Math.ceil(duration / 1000)}</b> detik.`,
+        timer: duration,
+        timerProgressBar: true,
         toast: true,
         position: toastPosition,
-        showConfirmButton: false,
-        delay: 2000,
-        timer: 5000,
-        timerProgressBar: true,
         background: '#1f2937',
-        color: '#ffffff'
+        color: '#ffffff',
+        showConfirmButton: false,
+        didOpen: (toast) => {
+            const b = Swal.getHtmlContainer().querySelector('b');
+            timerInterval = setInterval(() => {
+                const sisaWaktu = (Swal.getTimerLeft() / 1000).toFixed(1);
+                // Check if 'b' is not null before setting textContent
+                if (b) {
+                    b.textContent = sisaWaktu;
+                }
+            }, 100); // Perbarui setiap 100ms
+        },
+        willClose: () => {
+            clearInterval(timerInterval);
+        }
+    }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+            // Ubah canvas ke Blob
+            canvas.toBlob((blob) => {
+                if (blob) {
+                    const blobUrl = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.download = `${fileName}-bphg-success.png`;
+                    link.href = blobUrl;
+                    document.body.appendChild(link); // Tambahkan link ke body
+                    link.click();
+                    document.body.removeChild(link); // Hapus link dari body
+                    URL.revokeObjectURL(blobUrl); // Penting: Hapus URL Blob setelah selesai
+                }
+            }, 'image/png');
+
+            setTimeout(() => {
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Gambar berhasil diunduh.',
+                    icon: 'success',
+                    toast: true,
+                    position: toastPosition,
+                    showConfirmButton: false,
+                    timer: 5000,
+                    timerProgressBar: true,
+                    background: '#1f2937',
+                    color: '#ffffff'
+                });
+            }, 500)
+        }
     });
 });
