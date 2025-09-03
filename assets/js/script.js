@@ -502,33 +502,33 @@ downloadBtn.addEventListener('click', () => {
     }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
             // Ubah canvas ke Blob
-            canvas.toBlob((blob) => {
-                if (blob) {
-                    const blobUrl = URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.download = `${fileName}-bphg-success.png`;
-                    link.href = blobUrl;
-                    document.body.appendChild(link); // Tambahkan link ke body
-                    link.click();
-                    document.body.removeChild(link); // Hapus link dari body
-                    URL.revokeObjectURL(blobUrl); // Penting: Hapus URL Blob setelah selesai
-                }
-            }, 'image/png');
-
             setTimeout(() => {
-                Swal.fire({
-                    title: '🎉 Berhasil!',
-                    text: 'Gambar berhasil diunduh.',
-                    icon: 'success',
-                    toast: true,
-                    position: isMobile ? 'top' : 'bottom-end',
-                    showConfirmButton: false,
-                    timer: 5000,
-                    timerProgressBar: true,
-                    background: '#1f2937',
-                    color: '#ffffff'
-                });
-            }, 500)
+                canvas.toBlob((blob) => {
+                    if (blob) {
+                        const blobUrl = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.download = `${fileName}-bphg-success.png`;
+                        link.href = blobUrl;
+                        document.body.appendChild(link); // Tambahkan link ke body
+                        link.click();
+                        document.body.removeChild(link); // Hapus link dari body
+                        URL.revokeObjectURL(blobUrl); // Penting: Hapus URL Blob setelah selesai
+                    }
+
+                    Swal.fire({
+                        title: '🎉 Berhasil!',
+                        text: 'Gambar berhasil diunduh.',
+                        icon: 'success',
+                        toast: true,
+                        position: isMobile ? 'top' : 'bottom-end',
+                        showConfirmButton: false,
+                        timer: 5000,
+                        timerProgressBar: true,
+                        background: '#1f2937',
+                        color: '#ffffff'
+                    });
+                }, 'image/png');
+            }, 500);
         }
     });
 });
